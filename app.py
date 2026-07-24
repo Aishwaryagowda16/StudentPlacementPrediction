@@ -47,14 +47,15 @@ if st.button("Predict"):
     })
 
     prediction = model.predict(data)[0]
+    
     probability = model.predict_proba(data)
 
     confidence = max(probability[0])*100
 
-    if prediction=="Placed":
-        st.success(f"✅ Student is Likely to be Placed")
+    if prediction == 1:
+       st.success("✅ Student is Likely to be Placed")
     else:
-        st.error(f"❌ Student is Likely to be Not Placed")
+       st.error("❌ Student is Likely to be Not Placed")
 
     st.info(f"Prediction Confidence : {confidence:.2f}%")
 
